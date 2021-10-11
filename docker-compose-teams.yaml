@@ -2,7 +2,7 @@ version: '2.4'
 
 services:
   team-robocin:
-    image: lhcs/robocin-coach:latest
+    image: robocin/ssl:latest
     user: "1000"
     restart: unless-stopped
     mem_limit: "${TEAM_LIMIT_MEM}"
