@@ -1,61 +1,6 @@
 version: '2.4'
 
 services:
-  team-tigers:
-    image: robocupssl/ubuntu-vnc-java:0.3.1
-    user: "1000"
-    restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
-    environment:
-      SSH_PUBLIC_KEY:
-      VNC_PW:
-      VNC_RESOLUTION: 1920x1080
-    volumes:
-      - team-tigers-data:/home/default:rw
-    ports:
-      - 5901/tcp
-      - 2222/tcp
-    networks:
-      - match
-      - guacamole
-
-  team-erforce:
-    image: roboticserlangen/robocup:latest
-    user: "1000"
-    restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
-    environment:
-      SSH_PUBLIC_KEY:
-      VNC_PW:
-    volumes:
-      - team-erforce-data:/home/default:rw
-    ports:
-      - 5901/tcp
-      - 2222/tcp
-    networks:
-      - match
-      - guacamole
-
-  team-ubcthunderbots:
-    image: ubcthunderbots/tbots-software-env:0.0.1
-    user: "1000"
-    restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
-    environment:
-      SSH_PUBLIC_KEY:
-      VNC_PW:
-    volumes:
-      - team-ubcthunderbots-data:/home/default:rw
-    ports:
-      - 5901/tcp
-      - 2222/tcp
-    networks:
-      - match
-      - guacamole
-
   team-robocin:
     image: lhcs/robocin-coach:latest
     user: "1000"
@@ -65,6 +10,7 @@ services:
     environment:
       SSH_PUBLIC_KEY:
       VNC_PW:
+      VNC_RESOLUTION: 1920x1080
     volumes:
       - team-robocin-data:/home/default:rw
     ports:
@@ -85,24 +31,6 @@ services:
       VNC_PW:
     volumes:
       - team-robofei-data:/home/default:rw
-    ports:
-      - 5901/tcp
-      - 2222/tcp
-    networks:
-      - match
-      - guacamole
-
-  team-roboteamtwente:
-    image: yuhanuncitgez/robocup:latest
-    user: "1000"
-    restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
-    environment:
-      SSH_PUBLIC_KEY:
-      VNC_PW:
-    volumes:
-      - team-roboteamtwente-data:/home/default:rw
     ports:
       - 5901/tcp
       - 2222/tcp
@@ -146,78 +74,6 @@ services:
       - match
       - guacamole
 
-  team-robodragons:
-    image: sslrobodragons/robodragons-system:ubuntu20.04-robocup2021-simulation-7db95ab
-    user: "1000"
-    restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
-    environment:
-      SSH_PUBLIC_KEY:
-      VNC_PW:
-    volumes:
-      - team-robodragons-data:/home/default:rw
-    ports:
-      - 5901/tcp
-      - 2222/tcp
-    networks:
-      - match
-      - guacamole
-
-  team-src:
-    image: xlq57913/robocup2021-src:latest
-    user: "1000"
-    restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
-    environment:
-      SSH_PUBLIC_KEY:
-      VNC_PW:
-    volumes:
-      - team-src-data:/home/default:rw
-    ports:
-      - 5901/tcp
-      - 2222/tcp
-    networks:
-      - match
-      - guacamole
-
-  team-kiks:
-    image: ghcr.io/kiksworks/ssl-simulation-env:main
-    user: "1000"
-    restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
-    environment:
-      SSH_PUBLIC_KEY:
-      VNC_PW:
-    volumes:
-      - team-kiks-data:/home/default:rw
-    ports:
-      - 5901/tcp
-      - 2222/tcp
-    networks:
-      - match
-      - guacamole
-
-  team-kgpkubs:
-    image: nisarg1631/kgpkubs:latest
-    user: "1000"
-    restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
-    environment:
-      SSH_PUBLIC_KEY:
-      VNC_PW:
-    volumes:
-      - team-kgpkubs-data:/home/default:rw
-    ports:
-      - 5901/tcp
-      - 2222/tcp
-    networks:
-      - match
-      - guacamole
-
   team-omid:
     image: robocupssl/omid:latest
     user: "1000"
@@ -236,8 +92,8 @@ services:
       - match
       - guacamole
 
-  team-robojackets:
-    image: kylestach/robojackets-robocup-software:latest
+  team-warthog:
+    image: robocupssl/ubuntu-vnc:latest
     user: "1000"
     restart: unless-stopped
     mem_limit: "${TEAM_LIMIT_MEM}"
@@ -246,7 +102,7 @@ services:
       SSH_PUBLIC_KEY:
       VNC_PW:
     volumes:
-      - team-robojackets-data:/home/default:rw
+      - team-omid-data:/home/default:rw
     ports:
       - 5901/tcp
       - 2222/tcp
@@ -254,8 +110,8 @@ services:
       - match
       - guacamole
 
-  team-tritons:
-    image: tritonsrcsc/triton-software:latest
+  team-maracatronics:
+    image: robocupssl/ubuntu-vnc:latest
     user: "1000"
     restart: unless-stopped
     mem_limit: "${TEAM_LIMIT_MEM}"
@@ -264,30 +120,81 @@ services:
       SSH_PUBLIC_KEY:
       VNC_PW:
     volumes:
-      - team-tritons-data:/home/default:rw
+      - team-omid-data:/home/default:rw
     ports:
       - 5901/tcp
       - 2222/tcp
     networks:
       - match
       - guacamole
+
+  team-itandroids:
+    image: robocupssl/ubuntu-vnc:latest
+    user: "1000"
+    restart: unless-stopped
+    mem_limit: "${TEAM_LIMIT_MEM}"
+    cpus: "${TEAM_LIMIT_CPU}"
+    environment:
+      SSH_PUBLIC_KEY:
+      VNC_PW:
+    volumes:
+      - team-omid-data:/home/default:rw
+    ports:
+      - 5901/tcp
+      - 2222/tcp
+    networks:
+      - match
+      - guacamole
+
+  team-uaisoccer:
+    image: robocupssl/ubuntu-vnc:latest
+    user: "1000"
+    restart: unless-stopped
+    mem_limit: "${TEAM_LIMIT_MEM}"
+    cpus: "${TEAM_LIMIT_CPU}"
+    environment:
+      SSH_PUBLIC_KEY:
+      VNC_PW:
+    volumes:
+      - team-omid-data:/home/default:rw
+    ports:
+      - 5901/tcp
+      - 2222/tcp
+    networks:
+      - match
+      - guacamole
+
+  team-roboforge:
+    image: robocupssl/ubuntu-vnc:latest
+    user: "1000"
+    restart: unless-stopped
+    mem_limit: "${TEAM_LIMIT_MEM}"
+    cpus: "${TEAM_LIMIT_CPU}"
+    environment:
+      SSH_PUBLIC_KEY:
+      VNC_PW:
+    volumes:
+      - team-omid-data:/home/default:rw
+    ports:
+      - 5901/tcp
+      - 2222/tcp
+    networks:
+      - match
+      - guacamole
+
 
 volumes:
-  team-tigers-data:
-  team-erforce-data:
-  team-ubcthunderbots-data:
   team-robocin-data:
   team-robofei-data:
-  team-roboteamtwente-data:
   team-uroborus-data:
   team-roboime-data:
-  team-robodragons-data:
-  team-src-data:
-  team-kiks-data:
-  team-kgpkubs-data:
   team-omid-data:
-  team-robojackets-data:
-  team-tritons-data:
+  team-warthog-data:
+  team-maracatronics-data:
+  team-itandroids-data:
+  team-uaisoccer-data:
+  team-roboforge-data:
+
 
 networks:
   match:
