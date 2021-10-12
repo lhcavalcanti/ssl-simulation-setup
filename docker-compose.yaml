@@ -1,3 +1,4 @@
+
 version: '2.4'
 
 services:
@@ -119,16 +120,20 @@ services:
 
   simulator-private:
 #    image: roboticserlangen/simulatorcli:commit-d893d1c00a4b
-    image: robocupssl/grsim:2.4.0
+#    image: robocupssl/grsim:2.4.0
+#    image: grsim:br
+    image: robocin/grsim
     restart: unless-stopped
-    environment:
+#    environment:
       # ER-Force options
-      GEOMETRY: "2020"
-      REALISM: "RC2021"
+#      GEOMETRY: "2020"
+#      REALISM: "RC2021"
     ports:
       - 10300/udp
       - 10301/udp
       - 10302/udp
+#    volumes:
+#      - /home/:/home/:rw
     networks:
       - simulator
 
