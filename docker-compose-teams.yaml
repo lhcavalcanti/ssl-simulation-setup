@@ -111,7 +111,7 @@ services:
       - guacamole
 
   team-maracatronics:
-    image: robocupssl/ubuntu-vnc:latest
+    image: registry.wr.sc.usp.br/maracatronics-ssl:latest
     user: "1000"
     restart: unless-stopped
     mem_limit: "${TEAM_LIMIT_MEM}"
@@ -147,7 +147,7 @@ services:
       - guacamole
 
   team-uaisoccer:
-    image: robocupssl/ubuntu-vnc:latest
+    image: registry.wr.sc.usp.br/uaisystem:latest
     user: "1000"
     restart: unless-stopped
     mem_limit: "${TEAM_LIMIT_MEM}"
