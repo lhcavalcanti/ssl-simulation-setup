@@ -118,8 +118,8 @@ services:
       - match
 
   simulator-private:
-    image: roboticserlangen/simulatorcli:commit-d893d1c00a4b
-#    image: robocupssl/grsim:2.4.0
+#    image: roboticserlangen/simulatorcli:commit-d893d1c00a4b
+    image: robocupssl/grsim:2.4.0
     restart: unless-stopped
     environment:
       # ER-Force options

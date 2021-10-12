@@ -39,7 +39,7 @@ services:
       - guacamole
 
   team-uroborus:
-    image: uroborus/larcmacs:latest
+    image: registry.wr.sc.usp.br/uroborus
     user: "1000"
     restart: unless-stopped
     mem_limit: "${TEAM_LIMIT_MEM}"
@@ -93,7 +93,7 @@ services:
       - guacamole
 
   team-warthog:
-    image: robocupssl/ubuntu-vnc:latest
+    image: registry.wr.sc.usp.br/wrlarc2021:latest
     user: "1000"
     restart: unless-stopped
     mem_limit: "${TEAM_LIMIT_MEM}"

@@ -2,35 +2,13 @@
     root * /srv
     file_server
 }
+
 {{ field_name }}.{{ root_domain }} {
     root * /srv
     file_server {
         index field.html
     }
     file_server /recordings/* browse
-}
-
-scheduling.{{ root_domain }} {
-    reverse_proxy  ssl-scheduling-web:5000
-    basicauth /results {
-        {% for user in gc_all_users %}{{ user.name }} {{ user.hash }}
-        {% endfor %}
-    }
-    basicauth /request_friendly {
-        {% for user in gc_all_users %}{{ user.name }} {{ user.hash }}
-        {% endfor %}
-    }
-    basicauth /replace_referee {
-        {% for user in gc_admin_users %}{{ user.name }} {{ user.hash }}
-        {% endfor %}
-    }
-}
-
-portainer.{{ field_name }}.{{ root_domain }} {
-    reverse_proxy portainer:9000
-}
-grafana.{{ field_name }}.{{ root_domain }} {
-    reverse_proxy grafana:3000
 }
 
 vnc.{{ field_name }}.{{ root_domain }} {
