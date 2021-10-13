@@ -129,7 +129,7 @@ services:
       - guacamole
 
   team-itandroids:
-    image: robocupssl/ubuntu-vnc:latest
+    image: registry.wr.sc.usp.br/itandroids:v3
     user: "1000"
     restart: unless-stopped
     mem_limit: "${TEAM_LIMIT_MEM}"
